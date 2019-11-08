@@ -1,4 +1,4 @@
-class EmailParser
+class  EmailParser
 
   attr_accessor :emails
 
@@ -6,10 +6,13 @@ class EmailParser
     @emails = emails
   end
 
-  def parse
-    emails.split(/[,?\s]/).select{|email| email != ""}.uniq 
-  end
-
-end
+ 
+  def parse 
+    emails.split.collect do |address|
+    address.split(',') 
+    end
+    .flatten.uniq 
+  end 
+end 
   
   
