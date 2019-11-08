@@ -1,18 +1,17 @@
-class  EmailParser
+class EmailParser 
+  attr_accessor :name, :csv_emails
+  
+  def initialize(csv_emails)
+#   # you don't need name in here, it is redundant/
+#   @name = name
+    @csv_emails = csv_emails
+  end 
 
-  attr_accessor :emails
-
-  def initialize(emails)
-    @emails = emails
-  end
-
- 
   def parse 
-    emails.split.collect do |address|
-    address.split(',') 
+    csv_emails.split.collect do |address|
+      address.split(',') 
     end
     .flatten.uniq 
   end 
 end 
-  
   
